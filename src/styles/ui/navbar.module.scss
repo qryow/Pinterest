@@ -1,0 +1,209 @@
+@import "../base/mixins.scss";
+@import "../base/variables";
+
+.nav {
+  @include dimension(100%, 9vh);
+  .nav__wrapper {
+    @include dimension(97%, 100%);
+    @include flexbox(space-between, center);
+    margin: 0 auto;
+    .nav__logo {
+      @include dimension(12%, 90%);
+      //background-color: blue;
+      @include flexbox(space-between, center);
+      .logo__wrapper {
+        @include flexbox(space-between, center);
+        width: 10%;
+      }
+      .button__wrapper {
+        width: 82%;
+        @include dimension(84%, 100%);
+        @include flexbox(space-between, center);
+        button {
+          @include dimension(50%, 66%);
+          @include color(var(--black-text), #fff);
+          @include font(15px, 500);
+          padding-top: 4px;
+          border-radius: 25px;
+          cursor: pointer;
+        }
+        .active {
+          @include color(#fff, var(--black-text));
+        }
+      }
+    }
+    .nav__search {
+      position: relative;
+      @include dimension(78%, 100%);
+      @include flexbox(space-between, center);
+      svg {
+        position: absolute;
+        left: 15px;
+      }
+      input {
+        @include dimension(99%, 60%);
+        @include color(#e9e9e9, var(--black-text));
+        border-radius: 25px;
+        padding-left: 40px;
+        &::placeholder {
+          @include font(16px, 400);
+        }
+      }
+    }
+    .nav__account {
+      @include dimension(10%, 100%);
+      @include flexbox(space-between, center);
+      .item__wrapper {
+        @include dimension(50px, 50px);
+        @include flexbox(center, center);
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover {
+          background-color: #e9e9e9;
+        }
+        .item__avatar {
+          @include dimension(28px, 28px);
+          border: 1px solid rgb(241, 241, 241);
+          border-radius: 50%;
+          img {
+            @include img-fit();
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    //! User not login 
+    .nav__logo_notLogin {
+      @include dimension(25%, 90%);
+      @include flexbox(space-between, center);
+      .nav__logo_notLogin {
+        width: 20%;
+      }
+      .nav__menu {
+        @include dimension(65%, 100%);
+        @include flexbox(space-between, center);
+        li {
+          @include font(16px, 500);
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .nav__accountNotLogin {
+      @include dimension(28%, 90%);
+      @include flexbox(space-between, center);
+      .acc__menu {
+        @include dimension(55%, 90%);
+        @include flexbox(space-between, center);
+        li {
+          @include font(16px, 500);
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .acc__btns {
+        @include dimension(35%, 90%);
+        @include flexbox(space-between, center);
+        .acc__btn {
+          @include dimension(48%, 64%);
+          @include font(17px, 500);
+          @include color(var(--red-color), #fff);
+          border-radius: 25px;
+          transition: 0.3s;
+          &:hover {
+            @include color(#be031f , #fff);
+            transition: 0.3s;
+          }
+        }
+        .acc__btn2 {
+          @include dimension(46%, 64%);
+          @include font(17px, 500);
+          @include color(#e9e9e9, #000);
+          border-radius: 25px;
+          transition: 0.3s;
+          &:hover {
+            @include color(#d6d6d6, #000);
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.modal {
+  @include position(absolute, $top: 6.5vh, $right: 10px);
+  @include dimension(20vw, auto);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 18px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+  .modal__subtitle {
+    @include font(13px, 400);
+    margin-bottom: 8px;
+    margin-left: 10px;
+  }
+  .modal__account {
+    @include dimension(100%, 90px);
+    @include flexbox(_, center);
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: var(--gray);
+      transition: 0.3s;
+    }
+    .acc__avatar {
+      @include dimension(60px, 60px);
+      background-color: blue;
+      border-radius: 50%;
+      margin-right: 25px;
+      img {
+        @include img-fit();
+        border-radius: 50%;
+      }
+    }
+    .acc__info {
+      h3 {
+        @include font(18px, 400);
+        margin-bottom: 4px;
+      }
+      h5 {
+        @include font(14px, 300);
+        margin-bottom: 5px;
+      }
+      h6 {
+        @include font(14px, 300);
+      }
+    }
+  }
+  .modal__item {
+    @include dimension(100%, 45px);
+    @include flexbox(_, center);
+    border-radius: 10px;
+    padding: 0 10px;
+    cursor: pointer;
+    &:hover {
+      background-color  : var(--gray);
+    }
+    p {
+      @include font(16px, 400)
+    }
+  }
+} 
+.isActive {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s;
+}

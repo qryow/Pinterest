@@ -1,0 +1,111 @@
+@import '../base/mixins';
+
+.modal {
+  @include position(absolute, $top: -65px, $right: 60px);
+  @include dimension(180px, auto);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 18px 5px 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+  .modal__subtitle {
+    @include font(11px, 400);
+    margin-bottom: 8px;
+    margin-left: 6px;
+  }
+  .modal__subtitle_2 {
+    @include font(11px, 400);
+    margin: 15px 0px 8px 6px;
+  }
+  .modal__item {
+    @include dimension(100%, auto);
+    padding: 11px;  
+    border-radius: 10px;
+    margin-bottom: 4px;
+    transition: 0.2s;
+    &:hover {
+      background-color: var(--gray);
+      transition: 0.2s;
+    }
+    p {
+      @include font(14px, 500);
+    }
+  }
+  .modal__item_active {
+    background-color: var(--gray);
+  }
+}
+
+
+.navModal {
+  @include position(absolute, $top: 6.5vh, $right: 10px);
+  @include dimension(20vw, auto);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 18px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+  .modal__subtitle {
+    @include font(13px, 400);
+    margin-bottom: 8px;
+    margin-left: 10px;
+  }
+  .modal__account {
+    @include dimension(100%, 90px);
+    @include flexbox(_, center);
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: var(--gray);
+      transition: 0.3s;
+    }
+    .acc__avatar {
+      @include dimension(60px, 60px);
+      border: 1px solid rgb(241, 241, 241);
+      border-radius: 50%;
+      margin-right: 25px;
+      img {
+        @include img-fit();
+        border-radius: 50%;
+      }
+    }
+    .acc__info {
+      h3 {
+        @include font(18px, 400);
+        margin-bottom: 4px;
+      }
+      h5 {
+        @include font(14px, 300);
+        margin-bottom: 5px;
+      }
+      h6 {
+        @include font(14px, 300);
+      }
+    }
+  }
+  .modal__item {
+    @include dimension(100%, 45px);
+    @include flexbox(_, center);
+    border-radius: 10px;
+    padding: 0 10px;
+    cursor: pointer;
+    &:hover {
+      background-color  : var(--gray);
+    }
+    p {
+      @include font(16px, 400)
+    }
+  }
+} 
+.isActive {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s;
+}

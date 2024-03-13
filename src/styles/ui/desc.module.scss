@@ -1,0 +1,144 @@
+@import "../base/mixins.scss";
+@import "../base/variables";
+
+
+.desc__wrapper {
+  @include dimension(97%, auto);
+  margin: 0 auto;
+  .desc__name {
+    @include dimension(auto, auto);
+    @include flexbox(center, center);
+    margin: 30px auto 100px;
+    h3 {
+      @include font(24px, 500);
+      margin-right: 15px;
+      color: #555555;
+      cursor: pointer;
+    }
+    h4 {
+      @include font(32px, 500);
+      margin-right: 15px;
+    }
+    .desc__settings {
+      @include dimension(36px, 36px);
+      @include flexbox(center, center);
+      position: relative;
+      border-radius: 50%;
+      background-color: var(--gray);
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background-color: #c4c4c4;
+        transition: 0.3s;
+      }
+    }
+  }
+  .pin__count {
+    @include font(19px, 500);
+  }
+  .section__wrapper {
+    @include dimension(90%, auto);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto 0px;
+    .section__item__block {
+      @include dimension(18%, auto);
+      margin: 0px 16px;
+      .section__item {
+        @include dimension(100%, 157px);
+        border: 1px solid black;
+        cursor: pointer;
+      }
+      h5 {
+        @include font(21px, 500);
+        margin: 14px 6px 6px;
+        cursor: pointer;
+      }
+      span {
+        @include font(12px, 400);
+        margin-left: 6px;
+        cursor: pointer;
+      }
+    }
+  }
+  .pins__wrapper {
+    @include dimension(94%, auto);
+    margin: 60px auto;
+    column-count: 7;
+    .pin__item {
+      position: relative;
+      @include dimension(100%, 100%);
+      margin: 0px 6px 0px;
+      break-inside: avoid;
+      .section__item {
+        @include dimension(100%, auto );
+        cursor: pointer;
+        img {
+          border-radius: 10px;
+          margin-bottom: 10px;
+        }
+      }
+      .text__wrapper {
+        height: 25px;
+        h5 {
+          @include font(21px, 500);
+          margin: 10px 6px 6px;
+          cursor: pointer;
+        }
+        h4 {
+          @include font(17px, 400);
+          margin: 0px 6px 2px;
+          cursor: pointer;
+        }
+        span {
+          @include font(12px, 400);
+          margin-left: 6px;
+          cursor: pointer;
+        }
+        .pin__logo {
+          @include dimension(100%, auto);
+          display: flex;
+          margin-top: 8px;
+          margin-left: 6px;
+          img {
+            @include dimension(28px, 28px);
+            border-radius: 50%;
+            margin-right: 6px;
+            cursor: pointer;
+          }
+          p {
+            @include font(12px, 400);
+            margin: auto 6px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .add__active {
+    background-color: black;
+    transition: 0.3s;
+    &:hover {
+      background-color: black;
+    }
+  }
+}
+
+.add__section {
+  @include dimension(70px, 70px);
+  @include flexbox(center, center);
+  position: fixed;
+  //margin-bottom: 30px;
+  bottom: 30px;
+  left: 48.2%;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background-color: #eeeeee;
+    transition: 0.3s;
+  }
+}

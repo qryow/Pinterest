@@ -1,0 +1,530 @@
+@import "../base/mixins";
+@import "../base/variables";
+
+.add__wrapper {
+  @include dimension(76%, 90vh);
+  margin: 0 auto;
+  padding-left: 30px;
+  .add__header {
+    @include dimension(100%, auto);
+    @include flexbox(space-between, center);
+    padding: 35px 0px;
+    h4 {
+      @include font(18px, 500);
+    }
+    button {
+      @include font(16px, 500);
+      padding: 20px;
+      background-color: var(--red-color);
+      color: white;
+      border-radius: 25px;
+    }
+  }
+  .add__block {
+    @include dimension(80%, auto);
+    @include flexbox(space-between, _);
+    margin: 0 auto;
+    .add__left {
+      @include dimension(38%, auto);
+      .select__block {
+        @include dimension(80%, 450px);
+        @include flexbox(center, center);
+        background-color: rgb(233, 233, 233);
+        border-radius: 25px;
+        cursor: pointer;
+        p {
+          @include font(15px, 500);
+        }
+      }
+      .selected__block {
+        @include dimension(80%, auto);
+        img {
+          @include img-fit();
+          border-radius: 25px;
+        }
+      }
+    }
+    .add__right {
+      @include dimension(62%, 300px);
+      .edit__input {
+        position: relative;
+        margin-bottom: 20px;
+        p {
+          @include font(13px, 400);
+          margin-bottom: 10px;
+        }
+        .input__wrapper {
+          @include dimension(100%, auto);
+          position: relative;
+          margin-bottom: 25px;
+          cursor: pointer;
+            .input__item {
+            @include dimension(100%, 55px);
+            padding: 18px;
+            border: 2px solid rgb(207, 207, 207);
+            border-radius: 15px;
+            cursor: pointer;
+            user-select: none;
+            &:focus {
+              outline: none;
+            }
+            p {
+              @include font(14px, 400);
+              margin-left: 38px;
+            }
+          }
+          .desc__img {
+            @include dimension(35px, 35px);
+            position: absolute;
+            top: 18%;
+            left: 10px;
+            background-color: rgb(219, 219, 219);
+            border-radius: 5px;
+          }
+          .arrow__down {
+            position: absolute;
+            top: 46%;
+            right: 20px;
+            cursor: pointer;
+          }
+        }
+        input {
+          @include dimension(100%, 55px);
+          padding: 15px;
+          border: 2px solid rgb(207, 207, 207);
+          border-radius: 15px;
+          &:focus {
+            outline: 3px solid skyblue;
+          }
+        }
+        textarea {
+          @include dimension(100%, 110px);
+          padding: 15px;
+          border: 2px solid rgb(207, 207, 207);
+          border-radius: 15px;
+          &:focus {
+            outline: 3px solid skyblue;
+          }
+        }
+        .btn__item {
+          position: absolute;
+          right: 0;
+          top: 100px;
+          padding: 20px;
+          border-radius: 25px;
+          background-color: var(--red-color);
+          color: white;
+        }
+        .tags__list {
+          @include dimension(72%, auto);
+          @include flexbox(_, flex-start);
+          flex-wrap: wrap;
+          margin-top: 23px;
+          padding: 5px, 0px;
+          .tag__item {
+            @include flexbox(center, center);
+            padding: 15px 18px;
+            border-radius: 25px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background-color: black;
+            p {
+              @include font(16px, 400);
+              color: white;
+              margin-bottom: 0;
+            }
+            svg {
+              margin-top: 1px;
+              margin-left: 10px;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .desc__modal {
+          @include dimension(400px, 340px);
+          position: absolute;
+          top: 90px;
+          padding: 14px 12px;
+          background-color: #fff;
+          border-radius: 10px;
+          overflow-y: scroll;
+          opacity: 0;
+          transition: 0.3s;
+          pointer-events: none;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+          input {
+            @include dimension(100%, 52px);
+            @include font(15px, 400);
+            padding: 15px;
+            border: 2px solid rgb(207, 207, 207);
+            border-radius: 25px;
+            &:focus {
+              outline: 3px solid skyblue;
+            }
+          }
+          .desc__name {
+            @include font(13px, 400);
+            margin-top: 20px;
+            margin-left: 4px;
+          }
+          .descs__list {
+            @include dimension(100%, auto);
+            .desc__item {
+              @include dimension(100%, 50px);
+              @include flexbox(space-between, center);
+              margin-bottom: 10px;
+              padding: 0px 6px;
+              transition: 0.3s;
+              cursor: pointer;
+              border-radius: 10px;
+              &:hover {
+                background-color: var(--gray);
+                transition: 0.3s;
+              }
+              .item__img {
+                @include dimension(auto, 35px);
+                @include flexbox(_, center);
+                position: relative;
+                img {
+                  @include dimension(35px, 35px);
+                  border: 1px solid gray;
+                  border-radius: 5px;
+                }
+                .item__text {
+                  @include font(13px, 400);
+                  margin-left: 10px;
+                }
+              }
+              .arrow__left {
+                margin-right: 6px;
+              }
+            }
+          }
+        }
+        .isActive {
+          opacity: 1;
+          transition: 0.3s;
+          pointer-events: all;
+        }
+      }
+    }
+  }
+  .loading__wrapper {
+    @include dimension(100%, 100%);
+    @include flexbox(center, center);
+  }
+}
+
+.pins__wrapper {
+  @include dimension(94%, auto);
+  margin: 30px auto;
+  column-count: 7;
+  .pin__item {
+    position: relative;
+    @include dimension(100%, 100%);
+    margin: 0px 6px 60px;
+    break-inside: avoid;
+    .section__item {
+      @include dimension(100%, auto );
+      cursor: pointer;
+      img {
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    .text__wrapper {
+      height: 25px;
+      h5 {
+        @include font(21px, 500);
+        margin: 10px 6px 6px;
+        cursor: pointer;
+      }
+      h4 {
+        @include font(17px, 400);
+        margin: 0px 6px 2px;
+        cursor: pointer;
+      }
+      span {
+        @include font(12px, 400);
+        margin-left: 6px;
+        cursor: pointer;
+      }
+      .pin__logo {
+        @include dimension(100%, auto);
+        display: flex;
+        margin-top: 8px;
+        margin-left: 6px;
+        img {
+          @include dimension(28px, 28px);
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        p {
+          @include font(12px, 400);
+          margin: auto 6px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+.load__wrapper {
+  @include dimension(100%, 80vh);
+  @include flexbox(center, center);
+}
+
+
+.detail__wrapper {
+  width: 50%;
+  height: 100%;
+  //min-height: 350px;
+  @include flexbox(center, start);
+  //display: flex;
+  //flex-direction: row;
+  //overflow: hidden;
+  position: relative;
+  z-index: 1;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+  .detail__block1 {
+    //@include dimension(50%, 100%);
+    width: 50%;
+    height: 100%;
+    position: relative;
+    //@include flexbox(center, _);
+    overflow: hidden; /* Добавлено */
+    border-radius: inherit;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    .block__img {
+      //@include img-fit();
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .detail__block2  {
+    width: 50%;
+    height: 80%;
+    position: relative;
+    //@include flexbox(flex-end, center);
+    //flex-direction: column;
+    //overflow-y: scroll;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    //flex-shrink: 0;
+    .block2__top {
+      .choose__item {
+        @include flexbox(end, center);
+        margin: 20px 20px 0px 0px;
+        .chooice__btn {
+          @include font(15px, 500);
+          padding: 18px;
+          border-radius: 25px;
+          margin-right: 10px;
+          svg {
+            margin-left: 10px;
+          }
+        }
+        .save__btn {
+          @include font(15px, 500);
+          padding: 18px;
+          background-color: var(--red-color);
+          color: white;
+          border-radius: 25px;
+        }
+      }
+      .detail__acc {
+        display: flex;
+        margin: 20px 20px 0 30px;
+        img {
+          @include dimension(50px, 50px);
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        .acc__text {
+          @include flexbox(center, start);
+          flex-direction: column;
+          .acc__name {
+            @include font(15px, 500);
+            margin-bottom: 3px;
+          }
+          .acc__followers {
+            @include font(13px, 400);
+            color: rgb(71, 71, 71);
+          }
+        }
+        .acc__btn {
+          position: absolute;
+          right: 20px;
+          @include font(15px, 500);
+          padding: 18px;
+          background-color: var(--gray);
+          border-radius: 25px;
+        }
+      }
+      .detail__title {
+        @include font(24px, 500);
+        margin: 14px 20px 0 30px;
+      }
+      .detail__bio {
+        @include font(17px, 400);
+        margin: 15px 20px 0 30px;
+      }
+      .comments__title {
+        @include font(14px, 500);
+        margin: 25px 20px 0 30px;
+      }
+      .comments__text {
+        @include font(14px, 400);
+        margin: 15px 20px 0 30px;
+        color: rgb(126, 126, 126);
+      }
+      .comments__wrapper {
+        //width: 100%;
+        height: 40px;
+        //background-color: #682929;
+        margin: 15px 20px 0 30px;
+          .one__block {
+            width: auto;
+            @include flexbox(static, static);
+            height: 40px;
+            margin-bottom: 14px;  
+            .comment__img {
+              @include dimension(32px, 32px);
+              border-radius: 50%;
+            }
+            .comment__acc {
+              @include font(14px, 500);
+              margin: 8px 8px 0px;
+              span {
+                @include font(15px, 400);
+                margin-left: 2px;
+                line-height: 1.4;
+              }
+            }
+          .comment__content {
+            width: 60%;
+            margin-top: 10px;
+            margin-left: 10px;
+            //.comment__name {
+            //  @include font(13px, 400);
+            //  margin-left: 4px;
+            //}
+          }
+        }
+      }
+    }
+  }
+  .comment__wrapper {
+    @include dimension(50%, 70px);
+    @include flexbox(center, center);
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    margin-top: 10px;
+    padding: 10px 0;
+    background-color: white;
+    input {
+      position: relative;
+      @include dimension(80%, 100%);
+      @include font(15px, 400);
+      padding: 15px;
+      border: 2px solid rgb(207, 207, 207);
+      border-radius: 25px;
+      &:focus {
+        outline: 3px solid skyblue;
+      }
+    }
+    .comment__acc {
+      @include dimension(44px, 44px);
+      margin-right: 10px;
+      img {
+        border-radius: 50%;
+      }
+    }
+    .send__btn {
+      @include dimension(40px, 40px);
+      position: absolute;
+      right: 28px;
+      background-color: var(--red-color);
+      border-radius: 50%;
+      transition: 0.3s;
+      &:hover {
+        background-color: #a3061d;
+      }
+    }
+  }
+  .desc__modal {
+    @include dimension(400px, 340px);
+    position: fixed;
+    top: 130px;
+    right: 740px;
+    padding: 14px 12px;
+    background-color: #fff;
+    border-radius: 10px;
+    //overflow-y: scroll;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+    input {
+      @include dimension(100%, 52px);
+      @include font(15px, 400);
+      padding: 15px;
+      border: 2px solid rgb(207, 207, 207);
+      border-radius: 25px;
+      &:focus {
+        outline: 3px solid skyblue;
+      }
+    }
+    .desc__name {
+      @include font(13px, 400);
+      margin-top: 20px;
+      margin-left: 4px;
+      margin-bottom: 15px;
+    }
+    .descs__list {
+      @include dimension(100%, auto);
+      .desc__item {
+        @include dimension(100%, 50px);
+        @include flexbox(space-between, center);
+        padding: 0px 6px;
+        transition: 0.3s;
+        cursor: pointer;
+        border-radius: 10px;
+        &:hover {
+          background-color: var(--gray);
+          transition: 0.3s;
+        }
+        .item__img {
+          @include dimension(auto, 40px);
+          @include flexbox(_, center);
+          position: relative;
+          img {
+            @include dimension(40px, 40px);
+            border: 1px solid gray;
+            border-radius: 5px;
+          }
+          .item__text {
+            @include font(13px, 400);
+            margin-left: 10px;
+          }
+        }
+        .arrow__left {
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+  .isActive {
+    opacity: 1;
+    transition: 0.3s;
+    pointer-events: all;
+  }
+}
